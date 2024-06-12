@@ -11,11 +11,16 @@
     {
         public function index(Request $request)
         {
+            $filter = $request->filter;
             if($request->filter)
-                $news = News::with('categories')
-                            ->whereRaw("title LIKE '%".$request->filter."%'")
-                            ->orWhereRaw("content LIKE '%".$request->filter."%'")
-                            ->get();
+                $news = News::join('category_news as cn', 'news.id', '=', 'cn.news_id')
+                        ->join('categories as c', 'cn.category_id', '=', 'c.id')
+                        ->where('news.title', 'like', '%' . $filter . '%')
+                        ->orWhere('c.name', 'like', '%' . $filter . '%')
+                        ->orWhere('news.content', 'like', '%' . $filter . '%')
+                        ->select('news.*')
+                        ->distinct() 
+                        ->get();
             else
                 $news = News::with('categories')->get();
 
@@ -35,7 +40,7 @@
 
         public function create()
         {
-            $categories = Category::all();
+            $categories = Category::orderBy('name')->get();
             return view('news.create', compact('categories'));
         }
 

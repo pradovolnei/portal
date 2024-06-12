@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Portal</title>
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/adminlte.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -27,12 +29,6 @@
                         <li class="nav-item d-none d-sm-inline-block">
                             <a href="{{ route('news.create') }}" class="nav-link">CADASTRAR NOTÍCIAS</a>
                         </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="{{ route('categories.index') }}" class="nav-link">EXIBIR CATEGORIAS</a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="{{ route('categories.create') }}" class="nav-link">CADASTRAR CATEGORIAS</a>
-                        </li>
                     </ul>
                     <input class="form-control form-control-navbar"  name="filter" type="search" >
                     <div class="input-group-append">
@@ -46,7 +42,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #777777">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
                 <img src="{{ asset('dist/img/logo_news.png') }}" alt="News Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -132,16 +128,16 @@
         <!-- Main Footer -->
         <footer class="main-footer">
             <div class="float-right d-none d-sm-inline">
-                Anything you want
+                DEV VOLNEI PRADO
             </div>
-            <strong>&copy; 2024 News Portal</strong>
+            <strong>&copy; DEV VOLNEI PRADO</strong>
         </footer>
     </div>
-    <!-- ./wrapper -->
 
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 </body>
 </html>

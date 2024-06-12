@@ -7,21 +7,22 @@
             @csrf
             <div>
                 <label for="title">Título</label>
-                <input type="text" name="title" id="title" required>
+                <input class="form-control" type="text" name="title" id="title" required>
             </div>
             <div>
                 <label for="content">Conteúdo</label>
-                <textarea name="content" id="content" required></textarea>
+                <textarea class="form-control" name="content" id="content" required></textarea>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="categories">Categorias</label>
-                <select class="form-control" name="categories[]" id="categories">
+                <!-- Selecionar mais de uma categoria -->
+                <select class="select2" multiple="multiple" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;" name="categories[]" id="categories">
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" class="btn btn-block btn-primary btn-flat" >Cadastrar</button>
         </form>
     </div>
 @endsection

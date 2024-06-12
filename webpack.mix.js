@@ -6,3 +6,12 @@ mix.js('resources/js/app.js', 'public/js')
    .copy('node_modules/admin-lte/dist/css/adminlte.min.css', 'public/css')
    .copy('node_modules/admin-lte/plugins', 'public/plugins')
    .sourceMaps();
+
+
+mix.options({
+   hmrOptions: {
+         host: 'localhost',
+         port: 8080
+   }
+});
+  

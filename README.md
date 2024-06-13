@@ -40,20 +40,24 @@ DB_DATABASE=
 DB_USERNAME=  
 DB_PASSWORD=  
 
-### 5. Subir os Containers do Docker
+### 5. Criar o banco de dados
+
+php artisan migrate  
+
+### 6. Subir os Containers do Docker
 
 ./vendor/bin/sail up
 
-### 6. Executar Migrações
+### 7. Executar Migrações
 
 ./vendor/bin/sail artisan migrate
 
-### 7. Compilar Assets Frontend (Opcional)
+### 8. Compilar Assets Frontend (Opcional)
 
 ./vendor/bin/sail npm install  
 ./vendor/bin/sail npm run dev  
 
-### 8. Acessar o Projeto
+### 9. Acessar o Projeto
 
 http://localhost
 
